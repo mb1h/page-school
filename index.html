@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMKN 7 Bandar Lampung | المدرسة المهنية الرائدة</title>
+    
+    <!-- Google Fonts: Cairo for Headings, IBM Plex Sans Arabic for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS Setup with Custom Config matching the Artifact Design System -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        smkn: {
+                            navy: '#0F172A',      // Academic Navy
+                            green: '#059669',     // Emerald Growth (Replaces Stanford Red)
+                            gold: '#F59E0B',      // Achievement Gold
+                            light: '#F8FAFC',     // Background
+                            surface: '#FFFFFF',   // Surface
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Cairo', 'sans-serif'],
+                        body: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(15, 23, 42, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6, .font-display {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        /* Hero Section Overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.4) 40%, rgba(15,23,42,0.1) 100%);
+        }
+
+        /* Image Zoom Effect on Hover for Cards */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom {
+            transition: transform 0.5s ease;
+        }
+        .group:hover .img-zoom {
+            transform: scale(1.05);
+        }
+
+        /* Underline Animation for Links */
+        .link-underline {
+            position: relative;
+            text-decoration: none;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #059669; /* Emerald Green */
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .link-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Giant Hero Text similar to Stanford */
+        .hero-text-giant {
+            font-size: clamp(4rem, 10vw, 10rem);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="text-smkn-navy antialiased">
+
+    <!-- Top Utility Bar (Black/Dark Navy) -->
+    <div class="bg-black text-white text-xs sm:text-sm py-2 relative z-50">
+        <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-reverse space-x-4 md:space-x-6 mb-2 md:mb-0">
+                <a href="#" class="hover:text-smkn-green transition-colors font-body">طلاب</a>
+                <a href="#" class="hover:text-smkn-green transition-colors font-body">هيئة التدريس والموظفين</a>
+                <a href="#" class="hover:text-smkn-green transition-colors font-body">الخريجون</a>
+                <a href="#" class="hover:text-smkn-green transition-colors font-body">أولياء الأمور</a>
+                <a href="#" class="hover:text-smkn-green transition-colors font-body">الزوار</a>
+            </div>
+            <div class="flex items-center space-x-reverse space-x-4">
+                <span class="text-gray-400 font-body">بوابة الحضور الذكي:</span>
+                <a href="#" class="text-smkn-gold hover:text-white transition-colors font-bold"><i class="fa-solid fa-lock ms-1"></i> تسجيل الدخول</a>
+                <a href="#" class="hover:text-smkn-green transition-colors ms-4"><i class="fa-solid fa-magnifying-glass ms-1"></i> بحث</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation (Transparent over Hero) -->
+    <header class="absolute top-10 w-full z-40 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-8 py-4 flex flex-col lg:flex-row justify-between items-center">
+            <!-- Logo area -->
+            <a href="#" class="text-2xl lg:text-3xl font-display font-bold text-white mb-4 lg:mb-0 drop-shadow-md">
+                SMKN 7 <span class="font-light text-smkn-green">Bandar Lampung</span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="flex flex-wrap justify-center gap-x-4 gap-y-2 lg:gap-x-8 text-white font-display font-semibold text-sm lg:text-base drop-shadow-md">
+                <a href="#" class="hover:text-smkn-green transition-colors">عن المدرسة</a>
+                <a href="#" class="hover:text-smkn-green transition-colors">التخصصات والأكاديميات</a>
+                <a href="#" class="hover:text-smkn-green transition-colors">القبول</a>
+                <a href="#" class="hover:text-smkn-green transition-colors">الحياة المهنية</a>
+                <a href="#" class="hover:text-smkn-green transition-colors">الإنجازات</a>
+                <a href="#" class="hover:text-smkn-green transition-colors">الأخبار</a>
+                <a href="#" class="hover:text-smkn-green transition-colors">الأحداث</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image (Indonesian Vocational/Tech School vibe) -->
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop" alt="SMKN 7 Campus" class="absolute inset-0 w-full h-full object-cover z-0" />
+        
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 hero-overlay z-10"></div>
+
+        <!-- Giant Text -->
+        <div class="relative z-20 text-center w-full px-4 mt-20">
+            <h1 class="font-display font-black text-white hero-text-giant drop-shadow-2xl opacity-90">
+                SMKN 7
+            </h1>
+        </div>
+
+        <!-- Explore Banner (Replacing Stanford Red with SMKN Green) -->
+        <div class="absolute bottom-0 w-full bg-smkn-green hover:bg-emerald-700 transition-colors duration-300 z-30 cursor-pointer text-center py-4 sm:py-5" onclick="document.getElementById('mission').scrollIntoView();">
+            <div class="text-white font-display font-bold text-lg sm:text-xl flex items-center justify-center gap-2">
+                <i class="fa-solid fa-chevron-down"></i>
+                استكشف منظومة SMKN 7
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-8 max-w-4xl text-center">
+            <h2 class="font-display font-bold text-3xl md:text-5xl text-smkn-navy mb-6">رسالة يحددها الانضباط والجاهزية</h2>
+            <p class="font-body text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+                في SMKN 7 Bandar Lampung، تستمد رسالتنا في التعليم المهني والتقني طاقتها من روح الابتكار والانضباط الإندونيسي. هنا ستجد بيئة زاخرة بالتدريب العملي، وأحدث المعامل التكنولوجية والطبية، والتزاماً راسخاً بإعداد خريجين جاهزين لقيادة سوق العمل بكفاءة واحترافية. نحن نتعامل مع التحديات التقنية بشغف، ونسعى جاهدين لتحقيق التميز المهني في كل ما نقوم به.
+            </p>
+            <a href="#" class="font-display font-bold text-smkn-green hover:text-emerald-800 transition-colors text-lg inline-flex items-center gap-2 link-underline">
+                المزيد عن رؤيتنا الأكاديمية
+                <i class="fa-solid fa-arrow-left text-sm"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- News & Updates Grid -->
+    <section class="py-12 bg-smkn-light">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex justify-between items-end mb-8 border-b-2 border-gray-200 pb-4">
+                <h2 class="font-display font-bold text-2xl md:text-4xl text-smkn-navy">أخبار الحرم المدرسي</h2>
+                <a href="#" class="text-smkn-green font-bold hover:underline font-display hidden md:block">كل الأخبار والفعاليات</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Item 1 (Technology/TKJ) -->
+                <a href="#" class="group block bg-white rounded-xl shadow-premium overflow-hidden border border-gray-100">
+                    <div class="img-zoom-container h-64">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="TKJ Lab" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-smkn-green font-bold font-body text-sm mb-2 block">تكنولوجيا الشبكات (TKJ)</span>
+                        <h3 class="font-display font-bold text-xl text-smkn-navy mb-3 group-hover:text-smkn-green transition-colors">افتتاح معمل سيسكو الجديد لتدريب الطلاب على تقنيات التوجيه المتقدمة</h3>
+                        <p class="text-gray-600 font-body text-sm line-clamp-3">طلاب قسم هندسة الشبكات يبدأون التدريب العملي على أحدث أجهزة الخوادم المجهزة بدعم من شركائنا في قطاع التكنولوجيا.</p>
+                    </div>
+                </a>
+
+                <!-- News Item 2 (Medical/Nursing) -->
+                <a href="#" class="group block bg-white rounded-xl shadow-premium overflow-hidden border border-gray-100">
+                    <div class="img-zoom-container h-64">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" alt="Nursing Practice" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-smkn-green font-bold font-body text-sm mb-2 block">الرعاية الصحية والتمريض</span>
+                        <h3 class="font-display font-bold text-xl text-smkn-navy mb-3 group-hover:text-smkn-green transition-colors">مشاركة قسم التمريض في حملة التوعية الصحية بمقاطعة لامبونج</h3>
+                        <p class="text-gray-600 font-body text-sm line-clamp-3">قام طلاب السنة النهائية بتقديم فحوصات طبية مجانية وتوعية صحية للمجتمع المحلي كجزء من التدريب الميداني الإلزامي.</p>
+                    </div>
+                </a>
+
+                <!-- News Item 3 (General/Smart System) -->
+                <a href="#" class="group block bg-white rounded-xl shadow-premium overflow-hidden border border-gray-100">
+                    <div class="img-zoom-container h-64">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2000&auto=format&fit=crop" alt="Smart Attendance" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-smkn-gold font-bold font-body text-sm mb-2 block">تحت الأضواء - المنظومة الذكية</span>
+                        <h3 class="font-display font-bold text-xl text-smkn-navy mb-3 group-hover:text-smkn-green transition-colors">إطلاق المنظومة الرقمية الجديدة للحضور الذكي وإدارة الأداء</h3>
+                        <p class="text-gray-600 font-body text-sm line-clamp-3">استجابة لمتطلبات العصر، تطلق الإدارة النظام الجديد لتتبع الحضور باستخدام تقنيات التعرف على الوجه لمتابعة لحظية لأولياء الأمور.</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="inline-block bg-smkn-navy text-white font-display font-bold px-6 py-3 rounded-lg w-full">المزيد من أخبار الحرم المدرسي</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics & Majors -->
+    <section class="py-16 md:py-24 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="font-display font-black text-4xl md:text-6xl text-smkn-navy mb-12 text-center md:text-start">الأكاديميات والتخصصات</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1">
+                    <h3 class="font-display font-bold text-2xl text-smkn-navy mb-4">إعداد قادة الغد المهنيين</h3>
+                    <p class="text-gray-600 font-body text-lg leading-relaxed mb-6">
+                        نوفر تجارب تعليمية عملية ثرية، توفر أساساً واسعاً في التكنولوجيا والعلوم التطبيقية، مع خبرة عميقة تلبي احتياجات سوق العمل المحلي والعالمي.
+                    </p>
+                    <a href="#" class="font-display font-bold text-smkn-green hover:text-emerald-800 transition-colors text-lg inline-flex items-center gap-2 link-underline">
+                        اكتشف برامجنا المهنية
+                        <i class="fa-solid fa-arrow-left text-sm"></i>
+                    </a>
+                </div>
+                
+                <div class="lg:col-span-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 border-t-2 border-smkn-navy pt-8 relative">
+                        <span class="absolute top-0 right-0 bg-smkn-navy text-white text-xs font-bold px-3 py-1 font-display">التخصصات الرئيسية</span>
+                        
+                        <!-- Major 1 -->
+                        <div class="group cursor-pointer">
+                            <h4 class="font-display font-bold text-xl text-smkn-navy group-hover:text-smkn-green transition-colors mb-2">هندسة شبكات الحاسوب (TKJ)</h4>
+                            <p class="text-gray-500 font-body text-sm">تصميم وإدارة البنية التحتية للشبكات المتقدمة والأمن السيبراني.</p>
+                        </div>
+                        
+                        <!-- Major 2 -->
+                        <div class="group cursor-pointer">
+                            <h4 class="font-display font-bold text-xl text-smkn-navy group-hover:text-smkn-green transition-colors mb-2">التمريض والرعاية الصحية</h4>
+                            <p class="text-gray-500 font-body text-sm">إعداد كوادر تمريضية مؤهلة تأهيلاً عالياً للمستشفيات والعيادات.</p>
+                        </div>
+
+                        <!-- Major 3 -->
+                        <div class="group cursor-pointer">
+                            <h4 class="font-display font-bold text-xl text-smkn-navy group-hover:text-smkn-green transition-colors mb-2">هندسة البرمجيات (RPL)</h4>
+                            <p class="text-gray-500 font-body text-sm">تطوير تطبيقات الويب والهواتف الذكية وحلول الأنظمة المدمجة.</p>
+                        </div>
+
+                        <!-- Major 4 -->
+                        <div class="group cursor-pointer">
+                            <h4 class="font-display font-bold text-xl text-smkn-navy group-hover:text-smkn-green transition-colors mb-2">تكنولوجيا الصيدلة</h4>
+                            <p class="text-gray-500 font-body text-sm">التدريب العملي في المعامل الدوائية وصرف الأدوية وتركيباتها.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section (Matching Stanford's Research stats visually) -->
+    <section class="py-20 bg-smkn-navy text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div class="container mx-auto px-4 md:px-8 relative z-10">
+            <h2 class="font-display font-black text-3xl md:text-5xl mb-12 text-center">أرقام تعكس تميزنا المهني</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center divide-x-0 md:divide-x md:divide-x-reverse divide-gray-700">
+                <div class="px-4">
+                    <p class="font-display font-black text-4xl md:text-6xl text-smkn-gold mb-2">+4,500</p>
+                    <p class="font-body text-sm md:text-base text-gray-300">خريج انضموا بنجاح لسوق العمل والشركات الكبرى</p>
+                </div>
+                <div class="px-4">
+                    <p class="font-display font-black text-4xl md:text-6xl text-smkn-gold mb-2">120</p>
+                    <p class="font-body text-sm md:text-base text-gray-300">شراكة صناعية مع مؤسسات تقنية وطبية معتمدة</p>
+                </div>
+                <div class="px-4">
+                    <p class="font-display font-black text-4xl md:text-6xl text-smkn-gold mb-2">98%</p>
+                    <p class="font-body text-sm md:text-base text-gray-300">نسبة التوظيف لخريجي الأقسام التقنية خلال السنة الأولى</p>
+                </div>
+                <div class="px-4">
+                    <p class="font-display font-black text-4xl md:text-6xl text-smkn-gold mb-2">14</p>
+                    <p class="font-body text-sm md:text-base text-gray-300">معملاً متخصصاً مجهزاً بأحدث تقنيات المحاكاة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Life & Activities (Image Heavy Section) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="font-display font-black text-3xl md:text-5xl text-smkn-navy mb-8">الحياة في SMKN 7</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-auto md:h-[600px]">
+                <!-- Large Feature -->
+                <div class="lg:col-span-2 relative group overflow-hidden rounded-xl h-64 md:h-auto cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" alt="Students collaborating" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-smkn-navy via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 right-0 p-8 text-white">
+                        <span class="bg-smkn-green text-xs font-bold px-2 py-1 rounded mb-3 inline-block font-body">الأنشطة العملية</span>
+                        <h3 class="font-display font-bold text-2xl md:text-3xl mb-2">بناء مجتمع نابض بالحياة والمبدعين</h3>
+                        <p class="font-body text-gray-200 line-clamp-2">تعزيز المهارات القيادية والعمل الجماعي من خلال المشاريع الميدانية المشتركة.</p>
+                    </div>
+                </div>
+
+                <!-- Stacked small features -->
+                <div class="flex flex-col gap-4 h-64 md:h-full">
+                    <div class="relative group overflow-hidden rounded-xl flex-1 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=2070&auto=format&fit=crop" alt="Lab Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 right-0 p-6 text-white">
+                            <h3 class="font-display font-bold text-xl">المعامل المتقدمة</h3>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl flex-1 cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1577415124269-fc1140a69e91?q=80&w=2070&auto=format&fit=crop" alt="Sports" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 right-0 p-6 text-white">
+                            <h3 class="font-display font-bold text-xl">الأنشطة الرياضية</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Attendance Teaser Panel -->
+    <section class="py-12 bg-smkn-light border-y border-gray-200">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-white rounded-2xl shadow-premium p-8 md:p-12 flex flex-col md:flex-row items-center justify-between border-s-4 border-smkn-green">
+                <div class="md:w-2/3 mb-6 md:mb-0">
+                    <h2 class="font-display font-black text-2xl md:text-3xl text-smkn-navy mb-4">منظومة الحضور الذكي المتكاملة</h2>
+                    <p class="font-body text-gray-600 text-lg mb-0">
+                        مرحباً بكم في الحرم الرقمي لـ SMKN 7. يمكن للطلاب، والمعلمين، وأولياء الأمور تسجيل الدخول للوصول إلى لوحات القيادة المخصصة، متابعة جداول الحصص، تقارير الحضور اللحظية، والأداء الأكاديمي.
+                    </p>
+                </div>
+                <div class="md:w-1/3 flex justify-center md:justify-end">
+                    <button class="bg-smkn-navy hover:bg-gray-800 text-white font-display font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full md:w-auto flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-qrcode"></i>
+                        الدخول للمنظومة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-smkn-navy pt-16 pb-8 border-t-[8px] border-smkn-green text-gray-300">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <!-- Brand / Logo Area -->
+                <div class="lg:col-span-2">
+                    <a href="#" class="text-3xl font-display font-bold text-white mb-6 inline-block">
+                        SMKN 7 <span class="font-light text-smkn-green block text-xl mt-1">Bandar Lampung</span>
+                    </a>
+                    <p class="font-body text-sm mb-6 text-gray-400 max-w-xs">
+                        مدرسة ثانوية مهنية رائدة تهدف إلى إعداد جيل من المحترفين الجاهزين لقيادة المستقبل التكنولوجي والطبي في إندونيسيا.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-smkn-green text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-smkn-green text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-smkn-green text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-smkn-green text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1 -->
+                <div>
+                    <h4 class="font-display font-bold text-white mb-4 text-lg border-b border-gray-700 pb-2">الأكاديميات</h4>
+                    <ul class="space-y-3 font-body text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">هندسة الشبكات</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">التمريض السريري</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">هندسة البرمجيات</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">الصيدلة</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 2 -->
+                <div>
+                    <h4 class="font-display font-bold text-white mb-4 text-lg border-b border-gray-700 pb-2">القبول والتسجيل</h4>
+                    <ul class="space-y-3 font-body text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">إجراءات القبول</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">الرسوم الدراسية</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">المنح والدعم</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">التقويم الأكاديمي</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 3 -->
+                <div>
+                    <h4 class="font-display font-bold text-white mb-4 text-lg border-b border-gray-700 pb-2">التواصل</h4>
+                    <ul class="space-y-3 font-body text-sm">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot mt-1 text-smkn-green"></i>
+                            <span>Jl. Pendidikan No. 7, Bandar Lampung, Indonesia</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-smkn-green"></i>
+                            <span dir="ltr">+62 721 123456</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-smkn-green"></i>
+                            <span>info@smkn7bdl.sch.id</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-body text-gray-500">
+                <p>&copy; 2026 SMKN 7 Bandar Lampung. جميع الحقوق محفوظة.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">معلومات الطوارئ</a>
+                    <a href="#" class="hover:text-white">إمكانية الوصول</a>
+                    <a href="#" class="hover:text-white">سياسة الخصوصية</a>
+                    <a href="#" class="hover:text-white">شروط الاستخدام</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Transparent to solid Header effect on scroll
+        const header = document.querySelector('header');
+        const topBar = document.querySelector('.bg-black');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-smkn-navy', 'shadow-lg');
+                header.classList.remove('top-10', 'bg-transparent');
+                header.classList.add('top-0', 'fixed');
+            } else {
+                header.classList.remove('bg-smkn-navy', 'shadow-lg', 'fixed', 'top-0');
+                header.classList.add('top-10', 'absolute');
+            }
+        });
+    </script>
+</body>
+</html>
